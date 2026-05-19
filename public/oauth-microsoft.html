@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in to your Microsoft account</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }</style>
+</head>
+<body class="bg-[#f2f2f2] min-h-screen flex items-center justify-center p-4">
+  <div class="w-full max-w-[440px] bg-white p-11 shadow-md border border-stone-200 flex flex-col justify-between min-h-[420px]">
+    <div>
+      <!-- Microsoft Logo -->
+      <div class="flex items-center gap-2 mb-6">
+        <div class="grid grid-cols-2 gap-0.5 w-6 h-6">
+          <div class="bg-[#f25022] w-2.5 h-2.5"></div>
+          <div class="bg-[#7fba00] w-2.5 h-2.5"></div>
+          <div class="bg-[#00a4ef] w-2.5 h-2.5"></div>
+          <div class="bg-[#ffb900] w-2.5 h-2.5"></div>
+        </div>
+        <span class="text-stone-500 font-semibold text-lg tracking-tight">Microsoft</span>
+      </div>
+
+      <h1 class="text-2xl text-stone-800 font-semibold mb-1">Sign in with Microsoft</h1>
+      <p class="text-stone-600 text-sm mb-6">to continue to <strong class="text-stone-700 font-medium">Clowi</strong></p>
+
+      <!-- Status -->
+      <div id="status" class="text-center text-sm text-stone-500 py-6">
+        <div class="flex flex-col items-center gap-3">
+          <svg class="w-8 h-8 animate-spin text-blue-600" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+          </svg>
+          <p>Connecting to Microsoft…</p>
+        </div>
+      </div>
+
+      <div id="error-box" class="hidden bg-red-50 border border-red-200 p-4 text-sm text-red-700 text-center"></div>
+    </div>
+
+    <!-- Footer -->
+    <div class="mt-8 pt-4 flex items-center justify-end gap-4 text-xs text-stone-500">
+      <a href="#" class="hover:underline transition">Terms of use</a>
+      <a href="#" class="hover:underline transition">Privacy &amp; cookies</a>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+    import { getAuth, OAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBmYPvgVVKbrRUmqpGMORzsZPOtO4X4WZw",
+      authDomain: "clowi-cattd.firebaseapp.com",
+      projectId: "clowi-cattd",
+      storageBucket: "clowi-cattd.firebasestorage.app",
+      messagingSenderId: "418062327499",
+      appId: "1:418062327499:web:992ddb3fa830b0a441454e",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new OAuthProvider('microsoft.com');
+
+    const statusEl = document.getElementById('status');
+    const errorBox = document.getElementById('error-box');
+
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const firebaseUser = result.user;
+
+      const email = firebaseUser.email.toLowerCase();
+      const clowiData = JSON.parse(localStorage.getItem('clowi_data') || '{"users":[]}');
+      const matchedUser = clowiData.users?.find(u => u.email.toLowerCase() === email);
+
+      if (matchedUser) {
+        window.opener?.postMessage({ type: 'oauth-success', provider: 'Microsoft', user: matchedUser }, '*');
+        statusEl.innerHTML = '<p class="text-green-600 font-semibold">✅ Signed in! Closing…</p>';
+        setTimeout(() => window.close(), 800);
+      } else {
+        window.opener?.postMessage({
+          type: 'oauth-new-user',
+          provider: 'Microsoft',
+          profile: {
+            name: firebaseUser.displayName || '',
+            email: firebaseUser.email || '',
+            photoURL: firebaseUser.photoURL || '',
+          }
+        }, '*');
+        statusEl.innerHTML = `
+          <div class="text-center">
+            <p class="text-amber-700 font-semibold mb-1">✨ Microsoft account verified!</p>
+            <p class="text-stone-500 text-xs">No Clowi account for <strong>${firebaseUser.email}</strong>.<br/>Redirecting to registration…</p>
+          </div>`;
+        setTimeout(() => window.close(), 1800);
+      }
+    } catch (err) {
+      statusEl.classList.add('hidden');
+      errorBox.classList.remove('hidden');
+      if (err.code === 'auth/popup-closed-by-user') {
+        errorBox.textContent = 'Sign-in was cancelled.';
+      } else if (err.code === 'auth/unauthorized-domain') {
+        errorBox.innerHTML = `<strong>Unauthorized domain.</strong><br>Add <code>localhost</code> to Firebase → Authentication → Authorized domains.`;
+      } else {
+        errorBox.textContent = err.message;
+      }
+      setTimeout(() => window.close(), 3000);
+    }
+  </script>
+</body>
+</html>

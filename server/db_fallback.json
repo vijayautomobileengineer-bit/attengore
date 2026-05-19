@@ -1,0 +1,374 @@
+[
+  {
+    "corporateId": "CORP-100",
+    "data": {
+      "users": [
+        {
+          "id": "u_1779089800957",
+          "email": "admin@testcorp.com",
+          "name": "Test Admin",
+          "role": "Admin",
+          "password": "password123",
+          "corporateId": "CORP-100",
+          "contact": "",
+          "badges": []
+        },
+        {
+          "id": "u_1779094687433",
+          "name": "21",
+          "email": "21@gmail.com",
+          "role": "Employee",
+          "password": "21",
+          "contact": "",
+          "badges": [
+            "timekeeper"
+          ],
+          "corporateId": "CORP-100"
+        }
+      ],
+      "locations": [
+        {
+          "id": "loc_hq",
+          "name": "HQ — Downtown",
+          "lat": 37.7749,
+          "lng": -122.4194,
+          "radius": 150
+        }
+      ],
+      "attendance": [
+        {
+          "id": "att_1779092448390",
+          "userId": "u_1779089800957",
+          "date": "2026-05-18",
+          "checkIn": "2026-05-18T08:20:48.390Z",
+          "checkOut": "2026-05-18T08:21:43.382Z",
+          "locationId": "loc_hq",
+          "locationName": "HQ — Downtown"
+        },
+        {
+          "id": "att_1779092504327",
+          "userId": "u_1779089800957",
+          "date": "2026-05-18",
+          "checkIn": "2026-05-18T08:21:44.327Z",
+          "checkOut": "2026-05-18T08:26:32.471Z",
+          "locationId": "loc_hq",
+          "locationName": "HQ — Downtown"
+        },
+        {
+          "id": "att_1779093074176",
+          "userId": "u_1779089800957",
+          "date": "2026-05-18",
+          "checkIn": "2026-05-18T08:31:14.176Z",
+          "checkOut": "2026-05-18T08:31:16.160Z",
+          "locationId": "loc_hq",
+          "locationName": "HQ — Downtown"
+        },
+        {
+          "id": "att_1779094386973",
+          "userId": "u_1779089800957",
+          "date": "2026-05-18",
+          "checkIn": "2026-05-18T08:53:06.973Z",
+          "checkOut": null,
+          "locationId": "loc_hq",
+          "locationName": "HQ — Downtown"
+        }
+      ],
+      "leaves": [],
+      "holidays": [
+        "2026-05-26",
+        "2026-06-19",
+        "2026-07-04"
+      ],
+      "payroll": {
+        "u_1779089800957": {
+          "base": 9000,
+          "hra": 2200,
+          "performance": 1000,
+          "leaveDeduction": 0,
+          "tax": 600,
+          "prEsi": 200,
+          "medical": 150
+        },
+        "u_1779094687415": {
+          "base": 5000,
+          "hra": 1200,
+          "performance": 800,
+          "leaveDeduction": 0,
+          "tax": 600,
+          "prEsi": 200,
+          "medical": 150
+        },
+        "u_1779094687416": {
+          "base": 5000,
+          "hra": 1200,
+          "performance": 800,
+          "leaveDeduction": 0,
+          "tax": 600,
+          "prEsi": 200,
+          "medical": 150
+        },
+        "u_1779094687433": {
+          "base": 5000,
+          "hra": 1200,
+          "performance": 800,
+          "leaveDeduction": 0,
+          "tax": 600,
+          "prEsi": 200,
+          "medical": 150
+        }
+      },
+      "settings": {
+        "notifications": {
+          "email": true,
+          "push": true,
+          "weekly": false
+        },
+        "twoFactor": false
+      },
+      "notifications": [],
+      "customEvents": [
+        {
+          "id": "ev_1779093535842",
+          "userId": "u_1779089800957",
+          "date": "2026-05-31",
+          "text": "client meeting",
+          "createdAt": "2026-05-18T08:38:55.842Z"
+        }
+      ]
+    }
+  },
+  {
+    "corporateId": "CORP-12345",
+    "data": {
+      "users": [
+        {
+          "id": "u_1779094810410",
+          "email": "21@gmail.com",
+          "name": "21",
+          "role": "Employee",
+          "password": "21",
+          "corporateId": "CORP-12345",
+          "contact": "",
+          "badges": [],
+          "bankName": "sbbi",
+          "bankAccountName": "sbi",
+          "bankAccountNo": "sbi",
+          "bankIfsc": "bisi",
+          "bankBranch": "ssbi"
+        },
+        {
+          "id": "u_1779095079619",
+          "email": "admin@gmail.com",
+          "name": "admin",
+          "role": "Admin",
+          "password": "ADMIN",
+          "corporateId": "CORP-12345",
+          "contact": "",
+          "badges": [],
+          "bankName": "sbo",
+          "bankBranch": "sbo",
+          "bankAccountName": "sbi",
+          "bankAccountNo": "sbo",
+          "bankIfsc": "sbo"
+        },
+        {
+          "id": "u_1779096180262",
+          "email": "hr@company.com",
+          "name": "Admin HR",
+          "role": "HR",
+          "password": "password",
+          "corporateId": "CORP-12345",
+          "contact": "",
+          "badges": []
+        },
+        {
+          "id": "u_1779156007159",
+          "email": "vijayautomobileengineer@gmail.com",
+          "name": "VIJAY",
+          "role": "Admin",
+          "password": "vijay@0321",
+          "corporateId": "CORP-12345",
+          "contact": "",
+          "badges": []
+        }
+      ],
+      "locations": [
+        {
+          "id": "loc_hq",
+          "name": "HQ — Downtown",
+          "lat": 37.7749,
+          "lng": -122.4194,
+          "radius": 150
+        }
+      ],
+      "attendance": [
+        {
+          "id": "att_1779095229239",
+          "userId": "u_1779095079619",
+          "date": "2026-05-18",
+          "checkIn": "2026-05-18T09:07:09.239Z",
+          "checkOut": "2026-05-18T09:07:11.015Z",
+          "locationId": "loc_hq",
+          "locationName": "HQ — Downtown"
+        },
+        {
+          "id": "att_1779095249069",
+          "userId": "u_1779094810410",
+          "date": "2026-05-18",
+          "checkIn": "2026-05-18T09:07:29.069Z",
+          "checkOut": "2026-05-18T09:15:58.052Z",
+          "locationId": "loc_hq",
+          "locationName": "HQ — Downtown"
+        },
+        {
+          "id": "att_1779095639143",
+          "userId": "u_1779095079619",
+          "date": "2026-05-18",
+          "checkIn": "2026-05-18T09:13:59.143Z",
+          "checkOut": "2026-05-18T09:14:40.069Z",
+          "locationId": "loc_hq",
+          "locationName": "HQ — Downtown"
+        },
+        {
+          "id": "att_1779096502499",
+          "userId": "u_1779096180262",
+          "date": "2026-05-18",
+          "checkIn": "2026-05-18T09:28:22.499Z",
+          "checkOut": null,
+          "locationId": "loc_hq",
+          "locationName": "HQ — Downtown"
+        },
+        {
+          "id": "att_1779098237313",
+          "userId": "u_1779094810410",
+          "date": "2026-05-18",
+          "checkIn": "2026-05-18T09:57:17.313Z",
+          "checkOut": null,
+          "locationId": "loc_hq",
+          "locationName": "HQ — Downtown"
+        },
+        {
+          "id": "att_1779099471883",
+          "userId": "u_1779095079619",
+          "date": "2026-05-18",
+          "checkIn": "2026-05-18T10:17:51.883Z",
+          "checkOut": null,
+          "locationId": "loc_hq",
+          "locationName": "HQ — Downtown"
+        },
+        {
+          "id": "att_1779156037032",
+          "userId": "u_1779156007159",
+          "date": "2026-05-19",
+          "checkIn": "2026-05-19T02:00:37.032Z",
+          "checkOut": "2026-05-19T02:01:07.080Z",
+          "locationId": "loc_hq",
+          "locationName": "HQ — Downtown"
+        },
+        {
+          "id": "att_1779156112504",
+          "userId": "u_1779156007159",
+          "date": "2026-05-19",
+          "checkIn": "2026-05-19T02:01:52.504Z",
+          "checkOut": null,
+          "locationId": "loc_hq",
+          "locationName": "HQ — Downtown"
+        },
+        {
+          "id": "att_1779156167416",
+          "userId": "u_1779094810410",
+          "date": "2026-05-19",
+          "checkIn": "2026-05-19T02:02:47.416Z",
+          "checkOut": "2026-05-19T02:05:53.152Z",
+          "locationId": "loc_hq",
+          "locationName": "HQ — Downtown"
+        }
+      ],
+      "leaves": [
+        {
+          "id": "lv_1779096626456",
+          "userId": "u_1779096180262",
+          "type": "Normal",
+          "from": "2026-05-31",
+          "to": "2026-05-31",
+          "reason": "",
+          "status": "approved"
+        },
+        {
+          "id": "lv_1779096694009",
+          "userId": "u_1779094810410",
+          "type": "Normal",
+          "from": "2026-05-28",
+          "to": "2026-05-30",
+          "reason": "",
+          "status": "approved"
+        }
+      ],
+      "holidays": [
+        "2026-05-26",
+        "2026-06-19",
+        "2026-07-04"
+      ],
+      "payroll": {
+        "u_1779094810410": {
+          "base": 5000,
+          "hra": 1200,
+          "performance": 1000,
+          "tax": 600,
+          "prEsi": 200,
+          "leaveDeduction": 0
+        },
+        "u_1779095079619": {
+          "base": 9000,
+          "hra": 2200,
+          "performance": 1000,
+          "leaveDeduction": 0,
+          "tax": 600,
+          "prEsi": 200,
+          "medical": 150
+        },
+        "u_1779096180262": {
+          "base": 6500,
+          "hra": 1500,
+          "performance": 1000,
+          "leaveDeduction": 0,
+          "tax": 600,
+          "prEsi": 200,
+          "medical": 150
+        },
+        "u_1779156007159": {
+          "base": 9000,
+          "hra": 2200,
+          "performance": 1000,
+          "leaveDeduction": 0,
+          "tax": 600,
+          "prEsi": 200,
+          "medical": 150
+        }
+      },
+      "settings": {
+        "notifications": {
+          "email": true,
+          "push": true,
+          "weekly": false
+        },
+        "twoFactor": true,
+        "currency": "INR",
+        "company": {
+          "name": "C"
+        }
+      },
+      "notifications": [
+        {
+          "id": "n_1779095108680",
+          "userId": "u_1779094810410",
+          "type": "leave_approved",
+          "title": "Leave approved ✅",
+          "message": "Your Normal leave (May 29 – May 29) has been approved.",
+          "createdAt": "2026-05-18T09:05:08.680Z",
+          "read": true
+        }
+      ]
+    }
+  }
+]

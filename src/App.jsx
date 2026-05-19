@@ -15,7 +15,7 @@ const _fbConfig = {
 const _fbApp  = getApps().length ? getApps()[0] : initializeApp(_fbConfig);
 const _fbAuth = getAuth(_fbApp);
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_URL = import.meta.env.VITE_API_URL ?? '';
 
 
 // ============ CONSTANTS ============

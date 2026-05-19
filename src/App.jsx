@@ -316,7 +316,7 @@ const printPayslip = (user, payroll, month, settings, C) => {
   const co = { ...fallbackCompany, ...(settings?.company || {}) };
   const cb = { ...fallbackBank, ...(settings?.companyBank || {}) };
   const emp = user;
-  const companyLogo = co.logo || `${window.location.origin}/logo.png`;
+  const companyLogo = co.logo || `${window.location.origin}${import.meta.env.BASE_URL}logo.png`;
   const companyLogoMarkup = companyLogo
     ? `<img src="${companyLogo}" alt="${co.name || 'Company'} Logo" />`
     : `<span>${(co.name || 'C').charAt(0)}</span>`;
@@ -613,7 +613,7 @@ const Avatar = ({ name, size = 'md', src }) => {
   return (
     <div className={`relative overflow-hidden flex items-center justify-center ${sizes[size] || sizes.sidebar}`}>
       <img 
-        src="/logo.png" 
+        src={`${import.meta.env.BASE_URL}logo.png`} 
         alt="Clowi Logo" 
         className={imageClass} 
       />
